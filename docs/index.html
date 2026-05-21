@@ -3,1493 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Britain 2026 · Family Vacation</title>
+  <meta name="robots" content="noindex, nofollow">
+  <title>England Trip Ideas</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:      #1a3a5c;
-      --gold:      #c9962a;
-      --london:    #c41e3a;
-      --scotland:  #6b4fa7;
-      --wales:     #c05c1a;
-      --cotswolds: #2d7a4f;
-      --north:     #1a7a8a;
-      --bg:        #f5f3ef;
-      --card-bg:   #ffffff;
-      --text:      #2c2c2c;
-      --muted:     #6b6b6b;
-      --border:    #e8e4de;
-    }
-
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--bg);
-      color: var(--text);
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #27313a;
+      background: #f5f2ec;
       line-height: 1.6;
     }
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(150deg, #0f2740 0%, #1a3a5c 60%, #2a5a8c 100%);
-      color: white;
-      padding: 3.5rem 2rem 2.5rem;
+    header {
+      background: #1c3448;
+      color: #fff;
+      padding: 4rem 1.25rem 3rem;
       text-align: center;
     }
-    .hero-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
-    .hero h1 { font-size: 2.8rem; font-weight: normal; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-    .hero .subtitle { font-size: 1.05rem; opacity: 0.75; margin-bottom: 2rem; font-style: italic; }
-    .hero-stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
-    .stat-num   { display: block; font-size: 2rem; font-weight: bold; color: var(--gold); }
-    .stat-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; opacity: 0.65; }
-
-    /* ── TAB NAV ── */
-    .tab-nav {
-      background: white;
-      border-bottom: 2px solid var(--border);
-      display: flex;
-      justify-content: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    header h1 {
+      margin: 0 0 0.65rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: normal;
+      letter-spacing: 0.03em;
     }
-    .tab-btn {
-      background: none; border: none;
-      border-bottom: 3px solid transparent; margin-bottom: -2px;
-      padding: 1rem 1.4rem; font-size: 0.88rem; font-family: inherit;
-      color: var(--muted); cursor: pointer; transition: color 0.15s; white-space: nowrap;
+    header p {
+      max-width: 680px;
+      margin: 0 auto;
+      color: #d9e1e7;
+      font-size: 1.05rem;
     }
-    .tab-btn:hover  { color: var(--navy); }
-    .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: bold; }
-
-    /* ── PANELS ── */
-    .panel { display: none; max-width: 1080px; margin: 0 auto; padding: 2rem 1rem 4rem; }
-    .panel.active { display: block; }
-    .section-header { text-align: center; margin-bottom: 2rem; }
-    .section-header h2 { font-size: 1.9rem; color: var(--navy); font-weight: normal; }
-    .section-header p  { color: var(--muted); margin-top: 0.4rem; font-style: italic; }
-
-    /* ── CARDS ── */
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
-    .card {
-      background: white; border-radius: 12px; padding: 1.4rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.07); border-top: 4px solid var(--navy);
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
     }
-    .card.london    { border-top-color: var(--london); }
-    .card.scotland  { border-top-color: var(--scotland); }
-    .card.wales     { border-top-color: var(--wales); }
-    .card.cotswolds { border-top-color: var(--cotswolds); }
-    .card.north     { border-top-color: var(--north); }
-    .card.gold      { border-top-color: var(--gold); }
-    .card-icon { font-size: 1.9rem; margin-bottom: 0.5rem; display: block; }
-    .card h3   { font-size: 1.1rem; color: var(--navy); margin-bottom: 0.4rem; }
-    .card p    { font-size: 0.88rem; color: var(--muted); }
-
-    /* ── TAGS / CHIPS ── */
-    .tag {
-      display: inline-block; padding: 0.18rem 0.55rem; border-radius: 20px;
-      font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
-      letter-spacing: 0.05em; margin: 0.15rem 0.15rem 0.15rem 0;
-    }
-    .tag.london    { background: #fde8ec; color: var(--london); }
-    .tag.scotland  { background: #ede8f7; color: var(--scotland); }
-    .tag.wales     { background: #fdf0e8; color: var(--wales); }
-    .tag.cotswolds { background: #e8f4ee; color: var(--cotswolds); }
-    .tag.north     { background: #e8f4f7; color: var(--north); }
-    .tag.warn      { background: #fff3cd; color: #7a5a00; }
-    .tag.booked    { background: #d4edda; color: #155724; }
-    .tag.family    { background: #e8f0fe; color: #1a4276; }
-    .tag.dad       { background: #f0e8fe; color: #4a1a7a; }
-    .chip {
-      background: #eeebe6; border-radius: 20px; padding: 0.35rem 0.9rem;
-      font-size: 0.84rem; display: inline-block; margin: 0.2rem;
-    }
-
-    /* ── FAMILY CARDS ── */
-    .family-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1rem; margin-bottom: 2rem;
-    }
-    .family-card {
-      background: white; border-radius: 12px; padding: 1.25rem 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07); text-align: center;
-    }
-    .member-icon { font-size: 2.8rem; margin-bottom: 0.4rem; }
-    .family-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: 0.25rem; }
-    .family-card p  { font-size: 0.78rem; color: var(--muted); }
-
-    /* ── INFO BLOCK ── */
-    .info-block {
-      background: white; border-radius: 12px; padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07); margin-bottom: 1.5rem;
-    }
-    .info-block h3 { color: var(--navy); margin-bottom: 1rem; font-size: 1.05rem; }
-
-    /* ── CHECKLIST ── */
-    .checklist { list-style: none; }
-    .checklist li {
-      display: flex; gap: 0.75rem; align-items: flex-start;
-      padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.88rem;
-    }
-    .checklist li:last-child { border-bottom: none; }
-    .checklist li .ci { font-size: 1.1rem; flex-shrink: 0; padding-top: 0.1rem; }
-    .checklist a { color: var(--navy); }
-
-    /* ── ALERTS ── */
-    .alert {
-      display: flex; gap: 0.6rem; align-items: flex-start;
-      padding: 0.7rem 0.9rem; border-radius: 8px; font-size: 0.84rem; margin: 0.75rem 0;
-    }
-    .alert.warn    { background: #fff8e1; border-left: 3px solid #f0a500; }
-    .alert.info    { background: #e8f4f7; border-left: 3px solid var(--north); }
-    .alert.success { background: #eaf6ee; border-left: 3px solid var(--cotswolds); }
-
-    /* ── PHOTO STRIP ── */
-    .photo-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 0.6rem;
-      margin: 1rem 0 0.5rem;
-    }
-    .photo-strip figure { margin: 0; }
-    .photo-strip figure a { display: block; }
-    .photo-strip figure img {
-      width: 100%; height: 140px; object-fit: cover;
-      border-radius: 8px; display: block;
-      transition: opacity 0.2s; border: 1px solid var(--border);
-    }
-    .photo-strip figure img:hover { opacity: 0.88; }
-    .photo-strip figcaption {
-      font-size: 0.68rem; color: var(--muted); margin-top: 0.25rem;
-      line-height: 1.3; font-style: italic;
-    }
-    .photo-strip figcaption a { color: var(--muted); text-decoration: none; }
-    .photo-strip figcaption a:hover { text-decoration: underline; }
-
-    /* ── ACCORDION ── */
-    .accordion { margin-bottom: 1rem; }
-    .accordion-item {
-      background: white; border-radius: 12px; margin-bottom: 0.75rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.07); overflow: hidden;
-    }
-    .accordion-head {
-      display: flex; align-items: center; gap: 0.9rem;
-      padding: 1.1rem 1.4rem; cursor: pointer;
-      border-left: 5px solid var(--navy); user-select: none;
-    }
-    .accordion-head:hover { background: #faf9f7; }
-    .accordion-head.london    { border-left-color: var(--london); }
-    .accordion-head.scotland  { border-left-color: var(--scotland); }
-    .accordion-head.wales     { border-left-color: var(--wales); }
-    .accordion-head.cotswolds { border-left-color: var(--cotswolds); }
-    .accordion-head.north     { border-left-color: var(--north); }
-    .accordion-head.gold      { border-left-color: var(--gold); }
-    .acc-icon  { font-size: 1.9rem; flex-shrink: 0; }
-    .acc-title { flex: 1; }
-    .acc-title h3 { font-size: 1.05rem; color: var(--navy); }
-    .acc-title p  { font-size: 0.82rem; color: var(--muted); margin: 0; }
-    .acc-tags  { flex-shrink: 0; text-align: right; }
-    .acc-chevron { font-size: 0.85rem; color: var(--muted); margin-left: 0.5rem; transition: transform 0.2s; flex-shrink: 0; }
-    .accordion-item.open .acc-chevron { transform: rotate(180deg); }
-    .accordion-body { display: none; padding: 0 1.4rem 1.4rem; }
-    .accordion-item.open .accordion-body { display: block; }
-    .accordion-body > p { font-size: 0.9rem; margin-bottom: 0.75rem; }
-
-    .sub-region {
-      font-size: 0.78rem; font-weight: bold; text-transform: uppercase;
-      letter-spacing: 0.08em; margin: 1rem 0 0.4rem;
-      padding-bottom: 0.25rem; border-bottom: 1px solid var(--border);
-    }
-    .sub-region.london    { color: var(--london); }
-    .sub-region.scotland  { color: var(--scotland); }
-    .sub-region.cotswolds { color: var(--cotswolds); }
-    .sub-region.north     { color: var(--north); }
-
-    .acc-list { list-style: none; margin: 0; padding: 0; }
-    .acc-list li {
-      padding: 0.4rem 0; font-size: 0.88rem; border-bottom: 1px solid var(--border);
-    }
-    .acc-list li:last-child { border-bottom: none; }
-    .acc-list li::before { content: '→ '; color: var(--gold); font-weight: bold; }
-
-    /* ── BLOCK HEADERS (itinerary) ── */
-    .block-header {
-      border-radius: 12px; padding: 1.1rem 1.4rem; margin: 1.5rem 0 0.6rem;
-      display: flex; align-items: center; gap: 1rem; color: white;
-    }
-    .block-header.navy     { background: linear-gradient(135deg, #1a3a5c, #2a5a8c); }
-    .block-header.london   { background: linear-gradient(135deg, #b01833, #e03050); }
-    .block-header.cotswolds{ background: linear-gradient(135deg, #246840, #3a9a60); }
-    .block-header.scotland { background: linear-gradient(135deg, #5a3f96, #8a6fd0); }
-    .block-header.north    { background: linear-gradient(135deg, #1a7a8a, #2aabb0); }
-    .block-icon { font-size: 2rem; flex-shrink: 0; }
-    .block-header h3 { font-size: 1.05rem; font-weight: bold; margin-bottom: 0.15rem; }
-    .block-header p  { font-size: 0.8rem; opacity: 0.82; margin: 0; font-style: italic; }
-    .block-nights {
-      margin-left: auto; font-size: 0.72rem; opacity: 0.75; white-space: nowrap;
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-
-    /* ── DAY SCHEDULE (itinerary) ── */
-    .day-time {
-      font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
-      letter-spacing: 0.1em; margin: 0.85rem 0 0.3rem; color: var(--muted);
-    }
-    .day-time:first-child { margin-top: 0; }
-    .day-acts { list-style: none; margin: 0; padding: 0; }
-    .day-acts li {
-      font-size: 0.87rem; padding: 0.3rem 0; border-bottom: 1px solid var(--border); line-height: 1.5;
-    }
-    .day-acts li:last-child { border-bottom: none; }
-    .day-acts li strong { color: var(--navy); }
-    .day-num {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--bg);
-      font-size: 0.78rem; font-weight: bold; color: var(--navy); flex-shrink: 0;
-    }
-    .day-split {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.5rem 0;
-    }
-    .day-split-panel {
-      background: #faf9f7; border-radius: 8px; padding: 0.75rem; border: 1px solid var(--border);
-    }
-    .day-split-panel h5 {
-      font-size: 0.75rem; font-weight: bold; text-transform: uppercase;
-      letter-spacing: 0.07em; margin-bottom: 0.5rem; color: var(--navy);
-    }
-    .day-tbd {
-      background: #f8f6f2; border-radius: 10px; padding: 1.2rem; text-align: center;
-      color: var(--muted); font-style: italic; border: 2px dashed var(--border); margin: 0.25rem 0 0.85rem;
-    }
-    @media (max-width: 580px) {
-      .day-split { grid-template-columns: 1fr; }
-      .block-nights { display: none; }
-    }
-
-    /* ── DAY PLACEHOLDER ── */
-    .placeholder-itinerary {
-      text-align: center; padding: 3rem 2rem; background: white;
-      border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); color: var(--muted);
-    }
-    .placeholder-itinerary .big { font-size: 4rem; margin-bottom: 1rem; }
-    .placeholder-itinerary h3 { color: var(--navy); margin-bottom: 0.5rem; }
-
-    /* ── LIGHTBOX ── */
-    .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+    section {
+      margin: 0 0 2rem;
       padding: 1.5rem;
-      cursor: zoom-out;
+      background: #fff;
+      border: 1px solid #e3ded5;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(25, 36, 48, 0.06);
     }
-    .lightbox.open { display: flex; }
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 82vh;
-      object-fit: contain;
-      border-radius: 6px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-      cursor: default;
+    h2 {
+      margin: 0 0 0.75rem;
+      color: #1c3448;
+      font-size: 1.45rem;
+      font-weight: normal;
     }
-    .lightbox-caption {
-      color: rgba(255,255,255,0.75);
-      margin-top: 0.85rem;
-      font-size: 0.82rem;
-      font-style: italic;
-      text-align: center;
-      max-width: 600px;
+    h3 {
+      margin: 1.25rem 0 0.35rem;
+      color: #355c42;
+      font-size: 1.05rem;
     }
-    .lightbox-close {
-      position: fixed;
-      top: 1rem;
-      right: 1.25rem;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 2rem;
-      line-height: 1;
-      cursor: pointer;
-      opacity: 0.7;
-      transition: opacity 0.15s;
-      z-index: 2001;
+    p { margin: 0.5rem 0 0; }
+    ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.3rem;
     }
-    .lightbox-close:hover { opacity: 1; }
-    .lightbox-hint {
-      position: fixed;
-      bottom: 1rem;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
+    li { margin: 0.35rem 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
     }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 620px) {
-      .hero h1  { font-size: 1.9rem; }
-      .tab-btn  { padding: 0.75rem 0.65rem; font-size: 0.78rem; }
-      .panel    { padding: 1rem 0.75rem 3rem; }
-      .acc-tags { display: none; }
-      .photo-strip { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
-      .photo-strip figure img { height: 110px; }
+    .note {
+      background: #edf4f5;
+      border-color: #c9dcdf;
+    }
+    .quiet {
+      color: #68737c;
+      font-size: 0.95rem;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>England Trip Ideas</h1>
+    <p>A privacy-safe planning overview for an England vacation: castles, historic sites, countryside walks, food stops, and calmer evenings.</p>
+  </header>
 
-<!-- ═══════════════ HERO ═══════════════ -->
-<header class="hero">
-  <div class="hero-emoji">✈️ 🏰</div>
-  <h1>Britain 2026</h1>
-  <p class="subtitle">A family adventure through England · June–July 2026</p>
-  <div class="hero-stats">
-    <div><span class="stat-num">5</span><span class="stat-label">Travelers</span></div>
-    <div><span class="stat-num">20</span><span class="stat-label">Days</span></div>
-    <div><span class="stat-num">4</span><span class="stat-label">Regions</span></div>
-    <div><span class="stat-num">4+</span><span class="stat-label">Castle Stays</span></div>
-  </div>
-</header>
+  <main>
+    <section class="note">
+      <h2>Privacy Note</h2>
+      <p>This public page is intentionally broad. Exact travel dates, booking times, lodging details, flight routes, and personal family information are kept in private planning files.</p>
+    </section>
 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav class="tab-nav">
-  <button class="tab-btn active" onclick="showTab('overview',this)">📋 Overview</button>
-  <button class="tab-btn"        onclick="showTab('itinerary',this)">🗓 Day by Day</button>
-  <button class="tab-btn"        onclick="showTab('must-see',this)">⭐ Must See</button>
-  <button class="tab-btn"        onclick="showTab('practical',this)">🧳 Practical</button>
-</nav>
-
-<!-- ═══════════════ OVERVIEW ═══════════════ -->
-<section id="overview" class="panel active">
-  <div class="section-header">
-    <h2>Our Family</h2>
-    <p>Five travelers, one unforgettable trip</p>
-  </div>
-
-  <div class="family-grid">
-    <div class="family-card">
-      <div class="member-icon">👨</div>
-      <h3>Father</h3>
-      <p>Age 57 · Ted Lasso fan · Whisky lover · Lived in Lydiate</p>
-    </div>
-    <div class="family-card">
-      <div class="member-icon">👩</div>
-      <h3>Mother</h3>
-      <p>Age 44 · Good food, beautiful scenery, calm evenings</p>
-    </div>
-    <div class="family-card">
-      <div class="member-icon">👧</div>
-      <h3>Daughter</h3>
-      <p>Age 19 · Harry Potter · Castle stays · History</p>
-    </div>
-    <div class="family-card">
-      <div class="member-icon">👧</div>
-      <h3>Daughter</h3>
-      <p>Age 14 · Harry Potter · Castle stays · History</p>
-    </div>
-    <div class="family-card">
-      <div class="member-icon">👦</div>
-      <h3>Son</h3>
-      <p>Age 14 · Harry Potter · Castle stays · History</p>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>What We're All About</h3>
-    <div>
-      <span class="chip">🏰 Castle Stays</span>
-      <span class="chip">🏛 Historical Sites</span>
-      <span class="chip">🥾 Hiking</span>
-      <span class="chip">🍽 Good Food</span>
-      <span class="chip">🌄 Scenic Views</span>
-      <span class="chip">🌙 Calm Evenings</span>
-      <span class="chip">⚡ Harry Potter</span>
-      <span class="chip">⚽ Ted Lasso</span>
-      <span class="chip">🥃 Whisky</span>
-      <span class="chip">🗿 Stonehenge</span>
-    </div>
-  </div>
-
-  <div class="info-block">
-    <h3>Trip at a Glance</h3>
-    <ul class="checklist">
-      <li><span class="ci">📅</span><div><strong>When:</strong> June 28–July 17, 2026 · 20 days · Fly in June 28; fly home July 17</div></li>
-      <li><span class="ci">☀️</span><div><strong>Summer notes:</strong> Peak season — long daylight hours. Book everything well in advance.</div></li>
-      <li><span class="ci">✈️</span><div><strong>Airports:</strong> SEA → LHR (arrive June 28) · LHR → SEA (depart July 17)</div></li>
-      <li><span class="ci">🚗</span><div><strong>Transport:</strong> 7-seat rental MPV for countryside; Tube &amp; trains in London. One rental: pick up Heathrow June 28, drop York July 12. LNER train to London.</div></li>
-      <li><span class="ci">🌍</span><div><strong>Route shape:</strong> Heathrow → Windsor (2 nights) → WB Studio Tour → Bradford-on-Avon (5 nights) → drive north → York (7 nights) → LNER to London (5 nights) → fly home LHR</div></li>
-      <li><span class="ci">🏰</span><div><strong>Accommodation:</strong> Castle hotels at key stops; comfortable inns elsewhere. Calm evenings are non-negotiable.</div></li>
-      <li><span class="ci">🍞</span><div><strong>Gluten free:</strong> UK law requires allergen disclosure. M&amp;S, Tesco, Waitrose supermarkets have excellent GF ranges. Notify castle hotels 48 hrs ahead.</div></li>
-    </ul>
-  </div>
-
-  <div class="info-block">
-    <h3>🎟 Book These Before Anything Else</h3>
-    <ul class="checklist">
-      <li><span class="ci">🎬</span><div><strong>Warner Bros. Studio Tour</strong> — Book immediately. July dates sell out many months ahead · <a href="https://www.wbstudiotour.co.uk" target="_blank">wbstudiotour.co.uk</a></div></li>
-      <li><span class="ci">🗿</span><div><strong>Stonehenge timed entry</strong> — July is peak; inner circle access (~£50–55/person) is very limited — book at the same time as flights · <a href="https://www.english-heritage.org.uk/visit/places/stonehenge" target="_blank">english-heritage.org.uk</a></div></li>
-      <li><span class="ci">🚂</span><div><strong>LNER York → London King's Cross</strong> — July 12 train is booked. <a href="https://www.lner.co.uk" target="_blank">lner.co.uk</a></div></li>
-      <li><span class="ci">☕</span><div><strong>Fortnum &amp; Mason High Tea</strong> — Afternoon tea for Mom + daughters is booked. <a href="https://www.fortnumandmason.com" target="_blank">fortnumandmason.com</a></div></li>
-      <li><span class="ci">🎭</span><div><strong>The Mousetrap</strong> — West End booking 2–3 months ahead for July · <a href="https://www.delfontmackintosh.co.uk" target="_blank">delfontmackintosh.co.uk</a></div></li>
-      <li><span class="ci">🗓</span><div><strong>Tower of London · Churchill War Rooms · British Museum · Roman Baths</strong> — timed entry; book 2–4 weeks ahead for July</div></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ═══════════════ ITINERARY ═══════════════ -->
-<section id="itinerary" class="panel">
-  <div class="section-header">
-    <h2>Day by Day</h2>
-    <p>20 days · June 28–July 17, 2026 · England</p>
-  </div>
-
-  <!-- ════ BLOCK 1: WINDSOR ════ -->
-  <div class="block-header navy">
-    <span class="block-icon">🏰</span>
-    <div>
-      <h3>Block 1 — Windsor</h3>
-      <p>Days 1–2 · June 28–29 · Arrive Heathrow → Windsor → Marlow dinner</p>
-    </div>
-    <span class="block-nights">2 nights</span>
-  </div>
-  <div class="accordion">
-
-    <div class="accordion-item open">
-      <div class="accordion-head" onclick="toggleAcc(this.parentElement)" style="border-left-color:var(--navy)">
-        <span class="day-num">1</span>
-        <div class="acc-title">
-          <h3>Arrive &amp; Settle In</h3>
-          <p>June 28 · Heathrow → Windsor · Decompression landing day</p>
+    <section>
+      <h2>Trip Shape</h2>
+      <div class="grid">
+        <div>
+          <h3>Arrival Area</h3>
+          <ul>
+            <li>Gentle first stop close to the arrival airport</li>
+            <li>Castle visit and riverside walks</li>
+            <li>Easy meals and early recovery evenings</li>
+          </ul>
         </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
+        <div>
+          <h3>Southern Countryside</h3>
+          <ul>
+            <li>Stone circles and prehistoric landscapes</li>
+            <li>Cathedral towns and Georgian architecture</li>
+            <li>Historic villages, hilltop views, and castle dining</li>
+          </ul>
         </div>
-        <span class="acc-chevron">▼</span>
+        <div>
+          <h3>Yorkshire</h3>
+          <ul>
+            <li>Medieval York, rail history, and market streets</li>
+            <li>Moors, coast, abbey ruins, and estate activities</li>
+            <li>Dales scenery with a possible guided gorge walk</li>
+          </ul>
+        </div>
+        <div>
+          <h3>London</h3>
+          <ul>
+            <li>Museums, theatre, markets, and royal history</li>
+            <li>Flexible split activities for different interests</li>
+            <li>Low-pressure final days with good food nearby</li>
+          </ul>
+        </div>
       </div>
-      <div class="accordion-body">
-        <div class="day-time">✈️ Arrival</div>
-        <ul class="day-acts">
-          <li>Land at Heathrow; clear customs and immigration</li>
-          <li>Pick up Rental 1 at Heathrow; drive to Windsor (~20 min)</li>
-          <li>Check into Airbnb — walkable to Windsor Castle; freshen up; breathe</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon</div>
-        <ul class="day-acts">
-          <li><strong>The Long Walk</strong> — 3-mile tree-lined avenue from Windsor Castle to the Great Park. Flat, beautiful, gentle on jet-lagged legs.</li>
-          <li>Thames-side wander through Windsor town centre</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li>Pub dinner in Windsor — early and relaxed. Early bed. Jet lag management is the only priority today.</li>
-        </ul>
-        <div class="alert info">ℹ️ Rental 1 runs Heathrow pickup (June 28) → Bath Spa drop (July 5). No car needed in London.</div>
+    </section>
+
+    <section>
+      <h2>Experience Priorities</h2>
+      <ul>
+        <li>Castle stays, castle tours, and atmospheric historic sites</li>
+        <li>Beautiful ruins and landscapes without overloading each day</li>
+        <li>Structured teen-friendly activities where they add real value</li>
+        <li>Good food, gluten-free awareness, and occasional treat stops</li>
+        <li>Calm evenings to recover between bigger days</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Current Activity Shortlist</h2>
+      <div class="grid">
+        <div>
+          <h3>History</h3>
+          <ul>
+            <li>Major castles and cathedrals</li>
+            <li>Ancient stone sites</li>
+            <li>Abbey ruins and medieval streets</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Outdoors</h3>
+          <ul>
+            <li>Coastal walks and beach time</li>
+            <li>Dales hikes and limestone scenery</li>
+            <li>Optional wild swimming when conditions suit</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Structured Fun</h3>
+          <ul>
+            <li>Falconry or estate activity</li>
+            <li>Guided gorge walking</li>
+            <li>Escape rooms, chocolate tours, or other rainy-day backups</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Food</h3>
+          <ul>
+            <li>Tea, markets, pubs, and riverside meals</li>
+            <li>Ice cream and local food stops</li>
+            <li>Restaurants checked for dietary fit before booking</li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="accordion-item">
-      <div class="accordion-head" onclick="toggleAcc(this.parentElement)" style="border-left-color:var(--navy)">
-        <span class="day-num">2</span>
-        <div class="acc-title">
-          <h3>Windsor Castle + Eton + Marlow</h3>
-          <p>June 29 · Windsor · Eton · Marlow — history, riverside town, dinner with friends</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning</div>
-        <ul class="day-acts">
-          <li><strong>Windsor Castle — 11:30am entry ✓ Booked</strong>. State Rooms and St George's Chapel (burial place of Henry VIII and 9 other monarchs). Allow 2.5–3 hours. Airbnb is walkable — no car needed.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon</div>
-        <ul class="day-acts">
-          <li><strong>Eton College</strong> — cross the footbridge from Windsor; playing fields, chapel, and architecture free to walk. A 30–45 min wander.</li>
-          <li>Drive to Marlow (~10 miles along the Thames; 20 min). Marlow suspension bridge and Bisham Abbey riverbank are charming pre-dinner territory.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li><strong>Dinner in Marlow with friends</strong> — excellent Thames-side restaurants. Coordinate booking in advance.</li>
-        </ul>
-      </div>
-    </div>
-
-  </div><!-- /block 1 accordion -->
-
-  <!-- ════ BLOCK 2: COUNTRYSIDE ════ -->
-  <div class="block-header cotswolds">
-    <span class="block-icon">🌿</span>
-    <div>
-      <h3>Block 2 — Southern England Countryside</h3>
-      <p>Days 3–8 · June 30–July 5 · Bradford-on-Avon base · Lodging booked</p>
-    </div>
-    <span class="block-nights">5 nights</span>
-  </div>
-  <div class="accordion">
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">3</span>
-        <div class="acc-title">
-          <h3>Warner Bros. Studio Tour + Arrive Bradford</h3>
-          <p>June 30 · Windsor → Leavesden → Bradford-on-Avon</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Leisurely Windsor Exit</div>
-        <ul class="day-acts">
-          <li>14:00 entry time means a relaxed morning. Late checkout or café breakfast in Windsor.</li>
-          <li>Drive to Leavesden (~30 min via M25/M1). Aim to arrive ~13:30 — grab lunch at the studio café before entry.</li>
-        </ul>
-        <div class="day-time">🎬 14:00 — Warner Bros. Studio Tour</div>
-        <ul class="day-acts">
-          <li><strong>Warner Bros. Studio Tour — The Making of Harry Potter</strong> (Leavesden, near Watford) — Great Hall, original costumes, Diagon Alley sets, Forbidden Forest, Hogwarts castle model, Butterbeer in the backlot. Entry: 14:00. Allow 4–5 hours.</li>
-          <li>Tour ends approximately 18:00–19:00.</li>
-        </ul>
-        <div class="day-time">🌙 Evening — Drive to Bradford</div>
-        <ul class="day-acts">
-          <li>Drive M4 west to Bradford-on-Avon (~1.5 hours). Arrive ~19:30–20:30.</li>
-          <li>Check into Bradford-on-Avon lodging; grocery run (M&amp;S or Waitrose for GF stock). Late but easy first evening — no agenda.</li>
-        </ul>
-        <div class="alert info">✓ Booked — June 30, 14:00 entry. wbstudiotour.co.uk</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">4</span>
-        <div class="acc-title">
-          <h3>Avebury + Prehistoric Landscape</h3>
-          <p>July 1 · Stone circles, barrows, and ancient England</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning</div>
-        <ul class="day-acts">
-          <li><strong>Avebury Stone Circle</strong> — Europe's largest prehistoric stone circle; the village is built inside it. Walk freely among the stones (no barriers, no timed entry). National Trust; free.</li>
-          <li><strong>Silbury Hill</strong> — 5-min drive; roadside viewpoint. Largest prehistoric man-made mound in Europe (~2,400 BC).</li>
-          <li><strong>West Kennet Long Barrow</strong> — 5-min drive + 10-min walk. 5,500-year-old burial chamber you can walk inside. Free.</li>
-        </ul>
-        <div class="day-time">🍺 Lunch</div>
-        <ul class="day-acts">
-          <li><strong>The Red Lion, Avebury</strong> — the only pub in the world inside a stone circle.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon</div>
-        <ul class="day-acts">
-          <li>Return to Bradford-on-Avon; quiet village wander along the River Avon; calm evening in.</li>
-        </ul>
-        <div class="alert info">🌡️ Cooling tip: The River Avon runs through Bradford-on-Avon with calm spots for a paddle or swim. Farleigh Swimming Club (10 min; River Frome; day membership available) is the best local swimming option for a warm afternoon.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">5</span>
-        <div class="acc-title">
-          <h3>Salisbury + Afternoon Options + Stonehenge Sunset</h3>
-          <p>July 2 · Magna Carta · Lacock or prehistoric trail · Inner circle at sunset</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning</div>
-        <ul class="day-acts">
-          <li><strong>Salisbury Cathedral</strong> — England's tallest spire; holds one of only four surviving copies of the original 1215 Magna Carta. Allow 1–1.5 hours. ~8 miles from Stonehenge.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Two Options (decide on the day)</div>
-        <ul class="day-acts">
-          <li><strong>Option A — Lacock village</strong> (National Trust) — entirely NT-owned medieval village; almost no modern signage; one of the most atmospheric places in England. Arrive afternoon when coach tours have gone. ~20 min from Bradford.</li>
-          <li><strong>Option B — Prehistoric trail toward Stonehenge</strong> — Old Sarum hill fort &amp; Norman castle ruins (10 min from Salisbury) → Woodhenge prehistoric timber circle → Durrington Walls Neolithic settlement (linked to the Stonehenge builders). All en route to Stonehenge and a thematically immersive lead-up to the sunset tour.</li>
-        </ul>
-        <div class="day-time">🌇 Evening — Stonehenge Sunset Inner Circle</div>
-        <ul class="day-acts">
-          <li><strong>Stonehenge sunset inner circle tour — 7:00pm, July 2</strong> — walk freely among the stones; no barriers, no crowds. Sunset ~9:15–9:30pm. ✓ Booked.</li>
-          <li>Skipping standard daytime entry — the sunset tour is the superior experience and gets you inside the circle rather than viewing from the path.</li>
-        </ul>
-        <div class="alert info">✓ Booked — July 2, 7:00pm sunset inner circle. english-heritage.org.uk</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">6</span>
-        <div class="acc-title">
-          <h3>Bath</h3>
-          <p>July 3 · Roman Baths · Georgian crescents · Excellent food</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ 9:00am — Roman Baths</div>
-        <ul class="day-acts">
-          <li><strong>Roman Baths — 9:00am entry ✓ Booked</strong> — extraordinary Roman preservation. Allow 2 hours. First entry of the day is cooler and less crowded.</li>
-          <li><strong>The Pump Room</strong> — adjacent Georgian coffee/lunch room. GF-friendly. Perfect for a mid-morning break after the Baths.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon</div>
-        <ul class="day-acts">
-          <li><strong>Royal Crescent</strong> — the most perfect Georgian terrace in England (free to walk).</li>
-          <li><strong>The Circus</strong> — 33 townhouses in a perfect ring; Georgian counterpart to the Crescent (free).</li>
-          <li><strong>Pulteney Bridge</strong> — one of only four bridges in the world with shops on both sides; photogenic weir below.</li>
-          <li>Parade Gardens for an afternoon sit-down.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li>Dinner in Bath — strong GF options throughout the city. Return to Bradford (20–25 min).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">7</span>
-        <div class="acc-title">
-          <h3>Vicars' Close + Glastonbury</h3>
-          <p>July 4 · Quick medieval street stop · Arthurian ruins · Hilltop Tor</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Short Wells Stop</div>
-        <ul class="day-acts">
-          <li><strong>Vicars' Close</strong> — the oldest complete medieval street in Europe; attached to Wells Cathedral. Free, atmospheric, and best treated as a short photo/wander stop.</li>
-          <li><strong>Wells Cathedral exterior / Cathedral Green</strong> — quick look only unless everyone has extra energy. Keep Wells brief so Glastonbury can be the main event.</li>
-        </ul>
-        <div class="day-time">🌅 Midday + Afternoon — Glastonbury</div>
-        <ul class="day-acts">
-          <li><strong>Glastonbury High Street</strong> — alternative, colourful town; good GF lunch options and quirky shops.</li>
-          <li><strong>Glastonbury Tor</strong> — 20-min climb to the ruined St Michael's Tower; views across the Somerset Levels on a clear July day. Free.</li>
-          <li><strong>Glastonbury Abbey ruins</strong> — supposed burial place of King Arthur and Guinevere; atmospheric medieval remains.</li>
-          <li><strong>Optional Chalice Well Gardens</strong> — peaceful garden near the Tor; good decompression if the group wants a calmer finish.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li>Return to Bradford-on-Avon for a calm last countryside evening and early night before the drive to York.</li>
-        </ul>
-        <div class="alert info">ℹ️ Keep this day light: tomorrow is the long drive to York, so skip Thornbury Castle dinner and protect the evening.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">8</span>
-        <div class="acc-title">
-          <h3>Drive to York</h3>
-          <p>July 5 · Bradford-on-Avon → Yorkshire · ~3.5 hours</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Home Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning</div>
-        <ul class="day-acts">
-          <li>Check out Bradford-on-Avon lodging. Load up the car — same rental continues north (no drop needed).</li>
-          <li>Drive Bradford-on-Avon → York (~3.5 hours via A46/M1/A1(M)). Straightforward motorway route.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Arrive York</div>
-        <ul class="day-acts">
-          <li>Check into York home. Unpack properly — you're here for 7 nights.</li>
-          <li>Afternoon walk: York City Walls or first look at The Shambles. Get your bearings.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li>Dinner in York — the city has an excellent food scene. Stonegate and Gillygate have good options. GF widely available.</li>
-        </ul>
-        <div class="alert info">ℹ️ No car needed in York city itself — walk or bus. Use the car for day trips only. Park at the York home for the week.</div>
-      </div>
-    </div>
-
-  </div><!-- /block 2 accordion -->
-
-  <!-- ════ BLOCK 3: YORKSHIRE & YORK ════ -->
-  <div class="block-header north">
-    <span class="block-icon">🏛</span>
-    <div>
-      <h3>Block 3 — Yorkshire &amp; York</h3>
-      <p>Days 9–14 · July 6–11 · York homebase · Moors · Dales · Swinton Estate</p>
-    </div>
-    <span class="block-nights">6 nights</span>
-  </div>
-  <div class="accordion">
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">9</span>
-        <div class="acc-title">
-          <h3>York City Day — Minster · Shambles · Jorvik</h3>
-          <p>July 6 · Medieval streets · Viking history · Gothic cathedral</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning</div>
-        <ul class="day-acts">
-          <li><strong>York Minster</strong> — one of the finest Gothic cathedrals in northern Europe; naturally cool inside; climb the tower for views over the city. Allow 1.5–2 hours.</li>
-          <li><strong>The Shambles</strong> — the best-preserved medieval street in England; overhanging timber-framed buildings; widely said to have inspired Diagon Alley. Shambles Market adjacent.</li>
-        </ul>
-        <div class="day-time">🌅 1:30pm — JORVIK Viking Centre</div>
-        <ul class="day-acts">
-          <li><strong>JORVIK Viking Centre — 1:30pm entry ✓ Booked</strong> — world-class immersive Viking experience built over actual 10th-century Viking excavations. Ride through reconstructed Jorvik; smell, sound, and all. jorvik-viking-centre.co.uk</li>
-          <li><strong>York City Walls</strong> — 3.4 miles of medieval walls; walk a section for free; great views over the city and Minster.</li>
-          <li><strong>Clifford's Tower</strong> — Norman motte-and-bailey keep; good city views from the top. English Heritage.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li><strong>Betty's Café Tea Rooms</strong>, St Helen's Square — York institution since 1936; afternoon tea or early dinner. Worth the short queue.</li>
-          <li><strong>Optional York ghost walk</strong> — strong teen-friendly evening option if energy is good. York's ghost walks turn the old streets into stories rather than another building stop.</li>
-        </ul>
-        <div class="alert info">🌡️ Cooling tip: York Minster, the city walls, and Jorvik are all naturally cool. On a warm afternoon, the River Ouse riverside walk is shaded and breezy.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">10</span>
-        <div class="acc-title">
-          <h3>Clifford's Tower + Castle Museum + River Ouse Bikes</h3>
-          <p>July 7 · Dramatic York history · River scenery · Optional Chocolate Story</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — York Castle Area</div>
-        <ul class="day-acts">
-          <li><strong>Clifford's Tower</strong> — short, dramatic stop with serious York history and city views. Keep it focused.</li>
-          <li><strong>York Castle Museum</strong> — more immersive than a traditional museum; prioritize the recreated Victorian street and prison-history sections.</li>
-          <li>Strategy: leave while it is still interesting. This morning should not crowd out the afternoon bike ride.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — River Ouse Bike Ride</div>
-        <ul class="day-acts">
-          <li><strong>Bike rental in York</strong> — check Cycle Heaven at York Station or Get Cycling near Hospital Fields Road.</li>
-          <li><strong>Ride south toward Naburn / the York-Selby Solar System path</strong> — flat, scenic, and better for the family than navigating busy central streets by bike.</li>
-          <li>Keep this flexible: ride for an hour or two, then return for riverside downtime in York.</li>
-        </ul>
-        <div class="day-time">🍫 Rainy-Day / Low-Energy Swap</div>
-        <ul class="day-acts">
-          <li><strong>York's Chocolate Story</strong> — guided chocolate-making history in the city centre. Good optional add-on if bikes do not fit the weather or energy level.</li>
-        </ul>
-        <div class="alert info">ℹ️ No driving needed for the morning pairing: Clifford's Tower and York Castle Museum are next to each other. Wharram Percy and the National Railway Museum are now dropped from the main plan.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">11</span>
-        <div class="acc-title">
-          <h3>North Yorkshire Moors + Goathland + Whitby</h3>
-          <p>July 8 · Hogsmeade Station · Moors drive · Whitby beach priority</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Drive to Goathland</div>
-        <ul class="day-acts">
-          <li>Drive York → Goathland through the North Yorkshire Moors. This keeps the car with the family and preserves time for Whitby and the beach.</li>
-          <li><strong>Goathland Station</strong> — the actual Hogsmeade Station from Harry Potter film 1. Unchanged from the films; steam trains may still pass through. The village is charming and walkable.</li>
-          <li>Optional short scenic stop on the moors if the drive is beautiful and everyone is in good spirits.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Whitby</div>
-        <ul class="day-acts">
-          <li>Drive to Whitby (~30 min from Goathland).</li>
-          <li>Fish and chips on the harbour — Whitby is the gold standard. Magpie Café or Trenchers.</li>
-          <li><strong>Whitby Abbey / 199 steps</strong> — dramatic clifftop views and Dracula atmosphere. Keep this to exterior/views if needed so beach time does not get squeezed.</li>
-        </ul>
-        <div class="day-time">🏊 Beach Time — Priority</div>
-        <ul class="day-acts">
-          <li><strong>Whitby beach</strong> — make this a real block, not a maybe. Sandy, lifeguarded in summer, and good for swimming or just recovering by the water.</li>
-          <li>Bring towels, swimsuits, layers, and a simple change of clothes. North Sea water is cool, but that is part of the fun on a warm July day.</li>
-          <li><strong>Robin Hood's Bay</strong> — only if beach time is already satisfied and energy is high; otherwise skip it.</li>
-        </ul>
-        <div class="alert info">ℹ️ Steam train dropped from the main plan. Driving keeps the day flexible and makes beach time in Whitby realistic.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">12</span>
-        <div class="acc-title">
-          <h3>Swinton Estate — Falconry + Fountains Abbey</h3>
-          <p>July 9 · Hawks and falcons · UNESCO ruins · Masham</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ 11:00am — Swinton Estate Falconry</div>
-        <ul class="day-acts">
-          <li>Drive to Swinton Estate, Masham (~45 min from York).</li>
-          <li><strong>Falconry experience — 11:00am ✓ Booked</strong> — hawks, falcons, and owls flown on the estate grounds. swintonpark.com</li>
-          <li><strong>Lunch at Swinton</strong> — the estate has excellent dining.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Fountains Abbey</div>
-        <ul class="day-acts">
-          <li><strong>Fountains Abbey &amp; Studley Royal</strong> — UNESCO World Heritage Site; ~15 min from Swinton. One of the finest ruined Cistercian abbeys in Europe, set in a designed water garden. Allow 2 hours. nationaltrust.org.uk</li>
-        </ul>
-        <div class="day-time">🥃 Optional — Masham Distilleries</div>
-        <ul class="day-acts">
-          <li>Masham has two breweries worth a look: <strong>Black Sheep Brewery</strong> and <strong>Theakston's</strong>. Tours and tasting rooms. Good option while others are at the abbey.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">13</span>
-        <div class="acc-title">
-          <h3>Yorkshire Dales — Bolton Abbey + Malham</h3>
-          <p>July 10 · River swimming · Limestone landscape · Priory ruins</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Bolton Abbey</div>
-        <ul class="day-acts">
-          <li><strong>Bolton Abbey</strong> (~45 min from York) — ruins of a 12th-century Augustinian priory on the River Wharfe; stepping stones across the river; beautiful woodland walks. Free to walk the grounds.</li>
-          <li><strong>River Wharfe swimming</strong> — one of the classic Dales wild swimming spots. Calm, clear, and family-friendly at the Bolton Abbey stretch. Cool and refreshing in July.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Malham</div>
-        <ul class="day-acts">
-          <li><strong>Malham Cove</strong> — vast curved limestone cliff face with a limestone pavement at the top (featured in Harry Potter and the Deathly Hallows). Moderate 20-min walk up.</li>
-          <li><strong>Gordale Scar</strong> — dramatic limestone gorge a short walk from Malham; one of the great landscape surprises in England.</li>
-        </ul>
-        <div class="alert info">🏊 Swimming tip: Bring towels and swimwear for Bolton Abbey — the River Wharfe here is one of the best family swimming spots in the north of England.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head north" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">14</span>
-        <div class="acc-title">
-          <h3>Flexible Last York Recovery Day</h3>
-          <p>July 11 · Low-drive reset · Optional Castle Howard · Parents' riverside dinner</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Dinner Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Recovery Pace</div>
-        <ul class="day-acts">
-          <li>Sleep in, slow breakfast, and keep the morning local after three bigger driving days.</li>
-          <li>Easy options: River Ouse walk, York Museum Gardens, favorite shops, or a short city walls section.</li>
-          <li><strong>Optional Castle Howard</strong> (~30 min from York) only if energy is genuinely good. If you go, focus on grounds, gardens, fountains, and cafe rather than a full house tour.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — Last York Hours</div>
-        <ul class="day-acts">
-          <li>Protect downtime before London: pack, laundry reset, snacks, and an easy final wander.</li>
-          <li><strong>Optional York's Chocolate Story</strong> — good final-afternoon add-on if the family wants something fun, indoor, and not another old building.</li>
-          <li>Any missed York favorites — Stonegate, the Shambles again at golden hour, riverside photos, or a short city walls section.</li>
-        </ul>
-        <div class="day-time">🌙 Evening</div>
-        <ul class="day-acts">
-          <li><strong>Parents' dinner at The Cumberland York — 7:00pm ✓ Booked</strong>. Riverside fine dining and wine-focused adult evening.</li>
-          <li>Kids: easy dinner / takeaway / calm evening at the York lodging.</li>
-          <li>Drop rental car at York if timing works; otherwise keep the evening calm and handle logistics before tomorrow's LNER to London.</li>
-        </ul>
-        <div class="alert info">ℹ️ Tomorrow: LNER York → London King's Cross is booked. Much faster than driving — and no London parking to deal with.</div>
-      </div>
-    </div>
-
-  </div><!-- /block 3 accordion -->
-
-  <!-- ════ BLOCK 4: LONDON ════ -->
-  <div class="block-header london">
-    <span class="block-icon">🎭</span>
-    <div>
-      <h3>Block 4 — London</h3>
-      <p>Days 15–19 · July 12–16 · West Kensington base · Lodging booked · Studio Tour already done · 5 full days</p>
-    </div>
-    <span class="block-nights">5 nights</span>
-  </div>
-  <div class="accordion">
-
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">15</span>
-        <div class="acc-title">
-          <h3>Arrival + Gentle Richmond Evening</h3>
-          <p>July 12 · King's Cross · West Kensington · Richmond riverside · Recover</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">🚂 12:11pm — Arrive London</div>
-        <ul class="day-acts">
-          <li><strong>Arrive at King's Cross Station</strong>, then taxi or Tube to West Kensington lodging.</li>
-          <li><strong>1:15-2:15pm:</strong> Check in, unpack, and refresh.</li>
-        </ul>
-        <div class="day-time">🌅 Late Afternoon — Richmond</div>
-        <ul class="day-acts">
-          <li>Head to Richmond only if everyone has enough arrival-day energy.</li>
-          <li><strong>Compact walking route:</strong> Richmond Station → Richmond Green → The Prince's Head (real-life Crown &amp; Anchor) → Paved Court (Ted's apartment area) → Richmond Riverside / Thames Path → Richmond Bridge / Water Lane.</li>
-          <li>If everyone is surprisingly energetic, add Richmond Hill / Terrace Gardens viewpoint; otherwise save the uphill walk and stay by the river.</li>
-          <li>Keep this flexible and outdoors: the goal is atmosphere, movement, and an easy reset after travel.</li>
-        </ul>
-        <div class="day-time">🌙 Gentle Evening</div>
-        <ul class="day-acts">
-          <li><strong>5:45-6:00pm:</strong> Arrive near The White Cross for a riverside look or outdoor drink if space is available.</li>
-          <li><strong>6:30pm dinner at The White Cross ✓ Booked</strong>. Indoor table booked; outdoor/riverside seating is a bonus, not the plan.</li>
-          <li>Early return and recover from travel.</li>
-        </ul>
-        <div class="alert info">ℹ️ Pick up Oyster cards or use contactless bank cards — tap in and out; daily fare cap applies automatically.</div>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">16</span>
-        <div class="acc-title">
-          <h3>Natural History Museum + The Mousetrap</h3>
-          <p>July 13 · Son's must-see museum · Rest break · West End theatre</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag london">London</span>
-          <span class="tag dad">Dad's Pick</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Natural History Museum</div>
-        <ul class="day-acts">
-          <li><strong>8:30am:</strong> Breakfast near lodging.</li>
-          <li><strong>9:30am:</strong> Depart for South Kensington.</li>
-          <li><strong>10:00am-1:30pm:</strong> Natural History Museum.</li>
-          <li>Priority areas: Hintze Hall, blue whale, dinosaurs, volcanoes/earthquakes, plus one extra area your son chooses.</li>
-          <li>Strategy: give this must-see enough time, but still leave before museum fatigue sets in.</li>
-        </ul>
-        <div class="day-time">🌅 Lunch + Rest</div>
-        <ul class="day-acts">
-          <li><strong>1:30pm:</strong> Lunch near South Kensington or return toward West Kensington.</li>
-          <li><strong>3:00-4:45pm:</strong> Rest, showers, and change for theatre.</li>
-        </ul>
-        <div class="day-time">🌙 Evening — The Mousetrap ✓ Booked</div>
-        <ul class="day-acts">
-          <li><strong>5:00pm:</strong> Leave West Kensington for Covent Garden / Leicester Square. Evening peak can make this a 35-45 min door-to-door trip.</li>
-          <li><strong>5:30-5:45pm dinner near theatre:</strong> Bancone Covent Garden recommended; Browns Covent Garden as alternate.</li>
-          <li><strong>7:00pm:</strong> Arrive for The Mousetrap at St Martin's Theatre. ✓ Booked.</li>
-          <li>Return to lodging after the show.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">17</span>
-        <div class="acc-title">
-          <h3>Churchill + Hidden London + Street Art</h3>
-          <p>July 14 · St. James's · War Rooms · Leake Street · Optional vintage London</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag london">London</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Westminster Atmosphere</div>
-        <ul class="day-acts">
-          <li><strong>8:00am:</strong> Relaxed breakfast.</li>
-          <li><strong>9:00am:</strong> Depart for Westminster / St. James's.</li>
-          <li><strong>9:30am:</strong> Walk through St. James's Park for pelicans, lake views, and Buckingham Palace views.</li>
-          <li><strong>10:15am:</strong> Horse Guards Parade for mounted guards and Whitehall atmosphere.</li>
-          <li><strong>10:45am:</strong> Walk past Downing Street gates and Whitehall.</li>
-        </ul>
-        <div class="day-time">🍽️ 11:15am — Early Casual Lunch</div>
-        <ul class="day-acts">
-          <li>Options: Regency Cafe, Pret / Tesco meal deal picnic, or South Bank street food.</li>
-        </ul>
-        <div class="day-time">🌅 12:30pm — Churchill War Rooms</div>
-        <ul class="day-acts">
-          <li><strong>Churchill War Rooms</strong>, King Charles Street SW1. Explore 12:30-3:00pm.</li>
-          <li>Teen focus: Map Room, underground corridors, and Churchill exhibits.</li>
-        </ul>
-        <div class="day-time">🎨 Afternoon — Leake Street + Energy Check</div>
-        <ul class="day-acts">
-          <li><strong>3:00pm:</strong> Walk or travel toward South Bank. Walking avoids adding Tube complexity and gives a scenic transition.</li>
-          <li><strong>3:30pm:</strong> Explore Leake Street Arches for graffiti tunnel, street art, and photos.</li>
-          <li>Snack stop: coffee, gelato, pastries, or bubble tea.</li>
-          <li><strong>4:15pm energy checkpoint:</strong> lower energy = South Bank wandering and relaxed dinner; higher energy = continue to Brick Lane / Shoreditch, allowing 45-60 min in evening peak.</li>
-        </ul>
-        <div class="day-time">🌙 Optional Evening — Vintage London</div>
-        <ul class="day-acts">
-          <li><strong>5:00-6:30pm if energy allows:</strong> vintage/thrift wandering at Rokit, Beyond Retro, or Old Spitalfields Market.</li>
-          <li>Casual food: Brick Lane bagels, Bao, or Dishoom Shoreditch.</li>
-          <li>Alternate dinner area: Covent Garden, with Seven Dials Market, Homeslice, or Bancone.</li>
-          <li>Optional double-decker bus upper deck ride at dusk, then return to West Kensington.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">18</span>
-        <div class="acc-title">
-          <h3>Tower of London + Borough Market</h3>
-          <p>July 15 · Crown Jewels · Borough Market · South Bank · Gentle evening</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-          <span class="tag booked">✓ Booked</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — Tower of London</div>
-        <ul class="day-acts">
-          <li><strong>7:00am:</strong> Breakfast.</li>
-          <li><strong>7:30-7:40am:</strong> Depart for Tower area. This is a morning-peak eastbound trip; allow 45-55 min door-to-door.</li>
-          <li><strong>8:30am:</strong> Queue before opening at Tower of London.</li>
-          <li><strong>9:00am:</strong> Entry; Crown Jewels first, then White Tower, ramparts, Traitors' Gate, and Ravens. Focus only on highlights to avoid fatigue.<br>
-          🎟 <strong>Parents + 14-year-olds:</strong> Historic Royal Palaces family membership — free entry, no pre-booking required.<br>
-          🎟 <strong>19-year-old:</strong> 9:00am timed entry ticket ✓ Booked.</li>
-          <li><strong>12:00pm:</strong> Leave Tower before peak crowds.</li>
-        </ul>
-        <div class="day-time">🍽️ 12:15pm — Borough Market</div>
-        <ul class="day-acts">
-          <li><strong>Lunch at Borough Market:</strong> sausage rolls, sandwiches, pastries, and international stalls.</li>
-        </ul>
-        <div class="day-time">🌅 Afternoon — South Bank</div>
-        <ul class="day-acts">
-          <li><strong>1:30pm:</strong> South Bank wandering.</li>
-          <li>Optional: Shakespeare's Globe exterior or tour.</li>
-          <li>Optional: Tate Modern cafe/view only.</li>
-          <li><strong>4:30pm:</strong> Slow afternoon, cafe, or rest.</li>
-        </ul>
-        <div class="day-time">🌙 Evening — Tower Bridge Area</div>
-        <ul class="day-acts">
-          <li><strong>5:45pm dinner:</strong> Coppa Club Tower Bridge recommended; The Ivy Tower Bridge as alternate.</li>
-          <li>Gentle walk by Tower Bridge or early return to lodging.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="day-num">19</span>
-        <div class="acc-title">
-          <h3>British Museum + Fortnum &amp; Mason Tea</h3>
-          <p>July 16 · British Museum · Afternoon split · Final London evening</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Together</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="day-time">☀️ Morning — British Museum</div>
-        <ul class="day-acts">
-          <li><strong>8:00am:</strong> Breakfast.</li>
-          <li><strong>8:45am:</strong> Depart for museum. Morning peak can make this a 40-50 min door-to-door trip.</li>
-          <li><strong>10:00am:</strong> Entry at The British Museum. Priorities: Rosetta Stone, Egypt, Parthenon marbles, and Sutton Hoo.</li>
-          <li>Strategy: keep focused; avoid museum burnout.</li>
-        </ul>
-        <div class="day-time">🍽️ 12:30pm — Lunch Nearby</div>
-        <ul class="day-acts">
-          <li>Options: Museum Tavern, Noble Rot, or Seven Dials Market.</li>
-        </ul>
-        <div class="day-time">🌅 3:00pm — Afternoon Split</div>
-        <ul class="day-acts">
-          <li><strong>2:15pm:</strong> Travel toward Piccadilly.</li>
-          <li><strong>Mom + daughters:</strong> afternoon tea at Fortnum &amp; Mason. ✓ Booked.</li>
-          <li><strong>Husband + son:</strong> traditional pub and darts. The Coach &amp; Horses recommended; The Chandos as alternate.</li>
-          <li>Optional nearby shopping: Covent Garden vintage shops and Soho wandering, especially Rokit Covent Garden or Blackout II.</li>
-        </ul>
-        <div class="day-time">🌙 Final London Evening</div>
-        <ul class="day-acts">
-          <li><strong>6:00pm:</strong> Reconnect for final London evening.</li>
-          <li><strong>7:00pm:</strong> Final London dinner: relaxed pub or celebratory dinner.</li>
-          <li>Pack and keep the evening calm.</li>
-        </ul>
-        <div class="alert info">ℹ️ July 17: Check out London lodging. Transfer to Heathrow. LHR → SEA. Home.</div>
-      </div>
-    </div>
-
-  </div><!-- /block 4 accordion -->
-
-</section>
-
-
-<!-- ═══════════════ MUST SEE ═══════════════ -->
-<section id="must-see" class="panel">
-  <div class="section-header">
-    <h2>Must See &amp; Must Do</h2>
-    <p>Click any item to expand</p>
-  </div>
-
-  <div class="accordion">
-
-    <!-- ── HARRY POTTER ── -->
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="acc-icon">⚡</span>
-        <div class="acc-title">
-          <h3>Harry Potter Filming Locations</h3>
-          <p>Across England — a trail for the whole family</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag london">London</span>
-          <span class="tag north">North England</span>
-          <span class="tag warn">⚠ Book Early</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <p>The Harry Potter trail spans England — from London studios and Oxford libraries to Yorkshire and Northumberland. Plan the Warner Bros. Studio Tour as an anchor and build the rest of the trail into the route.</p>
-
-        <div class="sub-region london">London</div>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/0/06/Platform_9_3-4_%2815565604565%29.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Platform_9_3-4_%2815565604565%29.jpg/400px-Platform_9_3-4_%2815565604565%29.jpg" alt="Platform 9¾ at King's Cross" loading="lazy">
-            </a>
-            <figcaption>Platform 9¾, King's Cross · <a href="https://commons.wikimedia.org/wiki/File:Platform_9_3-4_(15565604565).jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>Warner Bros. Studio Tour (Leavesden)</strong> — The definitive HP experience. Great Hall, Diagon Alley sets, Hogwarts model, costumes &amp; props. Allow a full day. Book immediately. (~£52/adult, ~£42/child)</li>
-          <li><strong>Platform 9¾, King's Cross</strong> — Trolley photo op + HP shop. Go early morning on a weekday to beat the queue.</li>
-          <li><strong>Leadenhall Market, City of London</strong> — Victorian iron-and-glass market used as Leaky Cauldron entrance in film 1. Free.</li>
-        </ul>
-
-        <div class="sub-region cotswolds">Oxford &amp; Wiltshire</div>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/5/52/1283853_I_LACOCK_ABBEY%2C_exterior%2C_E_face_Lacock_20250906_0001.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/1283853_I_LACOCK_ABBEY%2C_exterior%2C_E_face_Lacock_20250906_0001.jpg/400px-1283853_I_LACOCK_ABBEY%2C_exterior%2C_E_face_Lacock_20250906_0001.jpg" alt="Lacock Abbey exterior" loading="lazy">
-            </a>
-            <figcaption>Lacock Abbey, Wiltshire · <a href="https://commons.wikimedia.org/wiki/File:1283853_I_LACOCK_ABBEY,_exterior,_E_face_Lacock_20250906_0001.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>Bodleian Library, Oxford</strong> (Duke Humfrey's Library) — Used as Hogwarts library and infirmary across multiple films</li>
-          <li><strong>Christ Church College, Oxford</strong> — Staircase and Great Hall inspired Hogwarts</li>
-          <li><strong>Lacock Abbey, Wiltshire</strong> (National Trust) — Hogwarts classroom scenes across multiple films. NT family membership recommended.</li>
-        </ul>
-
-        <div class="sub-region cotswolds">Gloucester</div>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/d/d6/Gloucester_Cathedral_Cloisters.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Gloucester_Cathedral_Cloisters.jpg/400px-Gloucester_Cathedral_Cloisters.jpg" alt="Gloucester Cathedral fan-vaulted cloisters" loading="lazy">
-            </a>
-            <figcaption>Gloucester Cathedral Cloisters — Hogwarts corridors · <a href="https://commons.wikimedia.org/wiki/File:Gloucester_Cathedral_Cloisters.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>Gloucester Cathedral</strong> — Fan-vaulted cloisters used as Hogwarts corridors in films 1 &amp; 2. Free entry (donations welcome).</li>
-        </ul>
-
-        <div class="sub-region north">Yorkshire</div>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/6/61/The_Shambles%2C_York.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/The_Shambles%2C_York.jpg/400px-The_Shambles%2C_York.jpg" alt="The Shambles, York" loading="lazy">
-            </a>
-            <figcaption>The Shambles, York — inspiration for Diagon Alley · <a href="https://commons.wikimedia.org/wiki/File:The_Shambles,_York.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>The Shambles, York</strong> — Medieval overhanging street that inspired Diagon Alley. Free to walk; combine with York Minster and city walls.</li>
-          <li><strong>Goathland Station</strong> — Used as Hogsmeade Station in film 1. Drive there through the North Yorkshire Moors, then continue to Whitby for the coast.</li>
-        </ul>
-
-        <div class="sub-region north">Northeast England</div>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/e/e0/Alnwick_Castle.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Alnwick_Castle.jpg/400px-Alnwick_Castle.jpg" alt="Alnwick Castle" loading="lazy">
-            </a>
-            <figcaption>Alnwick Castle — Hogwarts exterior, films 1 &amp; 2 · <a href="https://commons.wikimedia.org/wiki/File:Alnwick_Castle.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/6/68/07-Durham-002.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/07-Durham-002.jpg/400px-07-Durham-002.jpg" alt="Durham Cathedral" loading="lazy">
-            </a>
-            <figcaption>Durham Cathedral — Hogwarts courtyards · <a href="https://commons.wikimedia.org/wiki/File:07-Durham-002.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>Alnwick Castle, Northumberland</strong> — Hogwarts exterior in films 1 &amp; 2; flying lesson courtyard. Broomstick training sessions offered in summer. (~£17–18/adult)</li>
-          <li><strong>Durham Cathedral</strong> — Cloisters &amp; courtyard in films 1 &amp; 2 including Hedwig release scene. Free entry.</li>
-        </ul>
-
-        <div class="alert warn">⚠️ Warner Bros. Studio Tour: book the moment your travel dates are confirmed — July slots fill fast.</div>
-        <div class="alert success">✅ National Trust family membership (~£130–150/yr) covers Lacock Abbey plus many other stops on this trip.</div>
-      </div>
-    </div>
-
-    <!-- ── TED LASSO ── -->
-    <div class="accordion-item">
-      <div class="accordion-head london" onclick="toggleAcc(this.parentElement)">
-        <span class="acc-icon">⚽</span>
-        <div class="acc-title">
-          <h3>Ted Lasso Filming Locations</h3>
-          <p>Richmond upon Thames, southwest London</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag london">London</span>
-          <span class="tag dad">Dad's Pick</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <p>Ted Lasso was filmed almost entirely in the Richmond upon Thames borough of southwest London — a genuinely lovely area worth a half-day visit in its own right.</p>
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/8/8a/A_small_group_of_deer_in_Richmond_Park_-_geograph.org.uk_-_2410532.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/A_small_group_of_deer_in_Richmond_Park_-_geograph.org.uk_-_2410532.jpg/400px-A_small_group_of_deer_in_Richmond_Park_-_geograph.org.uk_-_2410532.jpg" alt="Deer in Richmond Park" loading="lazy">
-            </a>
-            <figcaption>Richmond Park deer · <a href="https://commons.wikimedia.org/wiki/File:A_small_group_of_deer_in_Richmond_Park_-_geograph.org.uk_-_2410532.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <ul class="acc-list">
-          <li><strong>The Prince's Head pub</strong> (Richmond Green, TW9) — The actual Crown &amp; Anchor. A functioning pub. Walk in, have a pint exactly where Ted and Beard sat.</li>
-          <li><strong>Selhurst Park, Crystal Palace FC</strong> (SE25) — The real AFC Richmond. Stadium tours available at cpfc.co.uk. ~30 min from Richmond by train.</li>
-          <li><strong>Richmond Green &amp; riverside</strong> — Walking and street scenes filmed throughout the area.</li>
-          <li><strong>Richmond Park</strong> — 2,500 acres of Royal Park with free-roaming red and fallow deer. Excellent family hike.</li>
-          <li><strong>Richmond Hill viewpoint</strong> — The Thames bend from the Terrace Gardens — the only view in England protected by an Act of Parliament.</li>
-        </ul>
-        <div class="alert info">ℹ️ Richmond: District Line (end of line) or South Western Railway from London Waterloo. July evenings here are lovely — great spot for a calm dinner by the river.</div>
-      </div>
-    </div>
-
-    <!-- ── STONEHENGE ── -->
-    <div class="accordion-item">
-      <div class="accordion-head cotswolds" onclick="toggleAcc(this.parentElement)">
-        <span class="acc-icon">🗿</span>
-        <div class="acc-title">
-          <h3>Stonehenge</h3>
-          <p>Wiltshire · One of the world's great prehistoric monuments</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag cotswolds">South England</span>
-          <span class="tag warn">⚠ Book Early</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/3/3c/Stonehenge2007_07_30.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Stonehenge2007_07_30.jpg/600px-Stonehenge2007_07_30.jpg" alt="Stonehenge" loading="lazy">
-            </a>
-            <figcaption>Stonehenge, Wiltshire · <a href="https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <p>Non-negotiable. About 90 min from London by car. July is peak season — timed entry books out well in advance. Book at english-heritage.org.uk.</p>
-        <ul class="acc-list">
-          <li>Standard tickets view the stones from a circular path ~10–15m away. Visitor Centre has excellent exhibits + 360° immersive experience. (~£30–32/adult, ~£18–20/child)</li>
-          <li><strong>Inner Circle (Stone Circle Experience)</strong> — pre-dawn or post-dusk access, walk among the stones. ~£50–55/person, very limited, books far in advance.</li>
-          <li>Pair with <strong>Salisbury Cathedral</strong> (15 min away) — holds one of the four original Magna Carta documents</li>
-          <li>Morning light is best; monument faces northeast toward midsummer sunrise</li>
-          <li>English Heritage family membership (~£140/yr) covers Stonehenge free + dozens of other sites</li>
-        </ul>
-        <div class="alert warn">⚠️ July is the busiest month. Inner circle access is extremely limited. Book inner circle tickets at the same time as your flights.</div>
-      </div>
-    </div>
-
-    <!-- ── CASTLE HOTELS ── -->
-    <div class="accordion-item">
-      <div class="accordion-head gold" onclick="toggleAcc(this.parentElement)">
-        <span class="acc-icon">🏰</span>
-        <div class="acc-title">
-          <h3>Castle Hotel Stays</h3>
-          <p>England &amp; Wales — sleep where history was made</p>
-        </div>
-        <div class="acc-tags">
-          <span class="tag family">All Ages</span>
-          <span class="tag warn">⚠ Book Early</span>
-        </div>
-        <span class="acc-chevron">▼</span>
-      </div>
-      <div class="accordion-body">
-        <div class="photo-strip">
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/4/4e/Thornbury_Castle.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Thornbury_Castle.jpg/400px-Thornbury_Castle.jpg" alt="Thornbury Castle" loading="lazy">
-            </a>
-            <figcaption>Thornbury Castle, Gloucestershire · <a href="https://commons.wikimedia.org/wiki/File:Thornbury_Castle.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/8/88/Castell_Rhuthun_-_adfeilion_y_goresgynwyr_%28wel_o_lia_fe_drion_nhw%29_01.JPG" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Castell_Rhuthun_-_adfeilion_y_goresgynwyr_%28wel_o_lia_fe_drion_nhw%29_01.JPG/400px-Castell_Rhuthun_-_adfeilion_y_goresgynwyr_%28wel_o_lia_fe_drion_nhw%29_01.JPG" alt="Ruthin Castle, Wales" loading="lazy">
-            </a>
-            <figcaption>Ruthin Castle, North Wales · <a href="https://commons.wikimedia.org/wiki/File:Castell_Rhuthun_-_adfeilion_y_goresgynwyr_(wel_o_lia_fe_drion_nhw)_01.JPG" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/e/ee/Langley_Castle.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Langley_Castle.jpg/400px-Langley_Castle.jpg" alt="Langley Castle, Northumberland" loading="lazy">
-            </a>
-            <figcaption>Langley Castle, Northumberland · <a href="https://commons.wikimedia.org/wiki/File:Langley_Castle.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/9/9c/Lumely_Castle.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Lumely_Castle.jpg/400px-Lumely_Castle.jpg" alt="Lumley Castle, County Durham" loading="lazy">
-            </a>
-            <figcaption>Lumley Castle, County Durham · <a href="https://commons.wikimedia.org/wiki/File:Lumely_Castle.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-          <figure>
-            <a href="https://upload.wikimedia.org/wikipedia/commons/6/62/2017-05_Amberley_Castle_01.jpg" target="_blank">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/2017-05_Amberley_Castle_01.jpg/400px-2017-05_Amberley_Castle_01.jpg" alt="Amberley Castle, West Sussex" loading="lazy">
-            </a>
-            <figcaption>Amberley Castle, West Sussex · <a href="https://commons.wikimedia.org/wiki/File:2017-05_Amberley_Castle_01.jpg" target="_blank">© Wikimedia Commons</a></figcaption>
-          </figure>
-        </div>
-        <p>Castle hotels anchor the trip at key emotional moments. July is peak season — book 6–9 months in advance.</p>
-        <ul class="acc-list">
-          <li><strong>Thornbury Castle</strong> (South Gloucestershire) — Only Tudor castle hotel in England (1511). Henry VIII &amp; Anne Boleyn slept here. ~£195–450/night. thornburycastle.co.uk</li>
-          <li><strong>Ruthin Castle</strong> (North Wales) — 13th-century Welsh castle; 30 acres; medieval banquet evenings. Family-friendly. ~£120–250/night. ruthincastle.co.uk</li>
-          <li><strong>Langley Castle</strong> (Northumberland) — 14th-century fortified tower castle near Hadrian's Wall. Tower rooms with 7ft-thick walls. ~£120–280/night. langleycastle.com</li>
-          <li><strong>Lumley Castle</strong> (County Durham) — 14th-century quadrangular castle; Black Knight medieval banquets; close to Durham Cathedral. Best value. ~£100–220/night. lumleycastle.com</li>
-          <li><strong>Amberley Castle</strong> (West Sussex) — 900-year-old; portcullis, 12ft walls, 19 rooms. South Downs walks. ~£230–550/night. amberleycastle.co.uk</li>
-        </ul>
-        <div class="alert success">✅ Lumley Castle and Ruthin Castle offer the best value and are the most family-forward options on this list. Both offer memorable medieval banquet evenings.</div>
-      </div>
-    </div>
-
-  </div><!-- /accordion -->
-</section>
-
-<!-- ═══════════════ PRACTICAL ═══════════════ -->
-<section id="practical" class="panel">
-  <div class="section-header">
-    <h2>Practical Notes</h2>
-    <p>Everything to know before you go</p>
-  </div>
-
-  <div class="card-grid">
-    <div class="card north">
-      <span class="card-icon">🚗</span>
-      <h3>Getting Around</h3>
-      <p>7-seat rental MPV for a family of 5 with bags. Drive on the left. Roundabouts everywhere — yield to traffic already on them. Avoid central London driving (congestion charge + no parking). Use Tube &amp; trains in the city.<br><br><strong>One rental car:</strong> Pick up Heathrow June 28. Drive Windsor → Bradford → York. Drop off York city, July 12. LNER train York → London King's Cross (~2 hrs). No car needed in London.</p>
-    </div>
-    <div class="card cotswolds">
-      <span class="card-icon">🍞</span>
-      <h3>Gluten Free in the UK</h3>
-      <p>UK allergen law requires restaurants to disclose gluten on request. Good chains: Wagamama, Nando's, Zizzi, Prezzo, M&amp;S Café. Supermarkets (M&amp;S especially) have outstanding GF ranges — great for picnic lunches. Always notify castle hotels 48 hrs in advance. Distilled whisky is generally celiac-safe.</p>
-    </div>
-    <div class="card gold">
-      <span class="card-icon">💷</span>
-      <h3>Budget Benchmarks</h3>
-      <p>
-        Warner Bros Tour: ~£200 for 5<br>
-        Stonehenge standard entry: ~£90–110<br>
-        Stonehenge inner circle: ~£250–275 for 5<br>
-        Fortnum &amp; Mason High Tea: ~£225–255 for 3<br>
-        Thornbury Castle: ~£195–450/night
-      </p>
-    </div>
-    <div class="card north">
-      <span class="card-icon">🏛</span>
-      <h3>Memberships Worth Buying</h3>
-      <p><strong>English Heritage</strong> (~£140/family) — covers Stonehenge free + dozens of other sites including Avebury village.<br><br><strong>National Trust</strong> (~£130–150/family) — covers Lacock Abbey, Glastonbury Abbey, and hundreds of countryside sites across the route.</p>
-    </div>
-    <div class="card wales">
-      <span class="card-icon">☀️</span>
-      <h3>July in Britain</h3>
-      <p>Peak tourist season. Long daylight hours — Yorkshire stays light until ~10pm. Book everything well ahead. Weather is warm but bring a waterproof layer — always.</p>
-    </div>
-    <div class="card london">
-      <span class="card-icon">🚂</span>
-      <h3>London Tips</h3>
-      <p>Oyster card or contactless bank card works on all Tube, Overground, and Elizabeth Line services — no need to buy tickets. Daily fare cap applies automatically.<br><br><strong>Rush-hour rule:</strong> weekday peaks are roughly 6:30-9:30am and 4:00-7:00pm. From West Kensington, allow 45 min for most central London moves and 55 min for the Tower. For timed entries, leave 15-20 min earlier than a route planner suggests. Walk between nearby central sights when possible: Westminster → South Bank, Tower → Borough, and British Museum → Covent Garden/Piccadilly if energy allows.<br><br><strong>Booked train:</strong> LNER York → London King's Cross (July 12, ~2 hrs). The July 8 Goathland/Whitby day is now planned as a driving day rather than a steam train booking.</p>
-    </div>
-  </div>
-</section>
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
-  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
-  <p class="lightbox-caption" id="lightbox-caption"></p>
-  <p class="lightbox-hint">ESC or click outside to close</p>
-</div>
-
-<script>
-  function showTab(id, btn) {
-    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function toggleAcc(item) {
-    item.classList.toggle('open');
-  }
-
-  // Lightbox
-  document.addEventListener('click', function(e) {
-    const link = e.target.closest('.photo-strip figure a');
-    if (!link) return;
-    e.preventDefault();
-    const fig = link.closest('figure');
-    const caption = fig.querySelector('figcaption').textContent.trim();
-    document.getElementById('lightbox-img').src = link.href;
-    document.getElementById('lightbox-img').alt = link.querySelector('img').alt;
-    document.getElementById('lightbox-caption').textContent = caption;
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.getElementById('lightbox-img').src = '';
-    document.body.style.overflow = '';
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-</script>
+    <section>
+      <h2>Private Planning</h2>
+      <p>The detailed version of the itinerary is stored locally outside the public site. Use that private copy for bookings, exact timing, travel days, lodging notes, and family-specific details.</p>
+      <p class="quiet">If this repository is public, make it private before pushing detailed planning files or old snapshots.</p>
+    </section>
+  </main>
 </body>
 </html>

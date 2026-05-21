@@ -1,18 +1,13 @@
-## we are a family of 5
+## Trip Planning Preferences
 
-### Parents: 
-Father: age 57
-Mother: age 44
+This repository should not contain exact family details, travel dates, lodging details,
+booking times, flight routes, or other information that could identify when people
+will be away from home or at a specific location.
 
-### Children 
-Daughter: age 19
-Daughter: age 14
-Son: age 14
-
-### We have Veried interests.
-Kids are interested in Castle Stays for the experience
-We are all interested in things like castle tours and historical sites
-Hiking
-Good food
-Nice views
-Calm evenings to recover
+Public-safe planning themes:
+- Castle stays and castle tours
+- Historic sites and ruins
+- Hiking and scenic views
+- Good food, including dietary-awareness checks
+- Calm evenings to recover
+- A few structured teen-friendly activities
